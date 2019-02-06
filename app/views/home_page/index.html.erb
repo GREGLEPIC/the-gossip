@@ -1,0 +1,28 @@
+<div class="container pt-5">
+  <h1>Bienvenue sur The Gossip Project !</h1>
+  <p>Voici la liste de nos derniers gossips</p>
+  <div class="row pt-4">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Auteur</th>
+          <th scope="col">Titre</th>
+          <th scope="col">Gossip</th>
+          <th scope="col">Voir le potin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @gossip.each_with_index do |gossip, i| %>
+          <tr>
+            <th scope="row"><%= gossip.id %></th>
+            <td><%= @user.find(gossip.user_id).full_name %></td>
+            <td><%= gossip.title %></td>
+            <td><%= gossip.content %></td>
+            <td><a href="/potin/<%= gossip.id %>" target='_blank'>Voir</a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
